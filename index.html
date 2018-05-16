@@ -25,6 +25,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.bundle.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
   </head>
 
@@ -106,12 +107,12 @@
 
                 </div>
                 <div>
-                  <div class="form-group form-inline" style=>
+                  <div class="form-group form-inline">
                   <label for="sens"><b>Sensor:</b></label>
                   <select class="form-control" style="margin-left: 5px;max-width: 100px" id="sens">
                   </select>
                   <div id="ourradio" style="margin-left: 20px"></div>
-                  <button type="button" class="btn btn-success" style="margin-left: 30px">Plot Sensor Data</button>
+                  <button id="plotbtn" type="button" class="btn btn-success" style="margin-left: 30px">Plot Sensor Data</button>
                   </div>
                 </div>
                     <script type="text/javascript">
@@ -147,6 +148,9 @@
             </div>
 
         </div>
+        <div class="row align-items-center">
+          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+        </div>
       </div>
     </section>
 
@@ -158,22 +162,79 @@
       <!-- /.container -->
     </footer>
 
-
+    <script>
+        $('#plotbtn').on('click',function () {
+            var url = "http://localhost:63342/Visual-Iot/sens.json";
+            $.ajaxSetup({contentType: "application/json; charset=utf-8"});
+            // Send the data using post
+            var posting = $.get( url );
+            // Parse out the results
+            posting.done(function( data ) {
+                var dataarray=new Array();
+                for(var k=0;k<data.length;k++){
+                    dataarray[k]={
+                        x: new Date(data[k].iso_timestamp),
+                        y: data[k].value,
+                    }
+                }
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    title:{
+                        text: $('#sens option:selected').text()+' '+ $("input[name='optradio']:checked").parent('label').text()+' '+ ' sensor',
+                    },
+                    axisX:{
+                        valueFormatString: "DD MMM YYYY HH",
+                        crosshair: {
+                            enabled: true,
+                            snapToDataPoint: true
+                        }
+                    },
+                    axisY: {
+                        title: $("input[name='optradio']:checked").parent('label').text(),
+                        includeZero: false,
+                        valueFormatString: "0.00",
+                        crosshair: {
+                            enabled: true,
+                            snapToDataPoint: true,
+                            labelFormatter: function(e) {
+                                return "$" + CanvasJS.formatNumber(e.value, "##0.00");
+                            }
+                        }
+                    },
+                    data: [{
+                        type: "area",
+                        xValueFormatString: "DD MMM YYYY HH:mm:ss",
+                        yValueFormatString: "0.00",
+                        dataPoints: dataarray,
+                    }]
+                });
+                chart.render();
+            });
+        });
+    </script>
     <script>
         var infowindowArray = new Array();
         var markerDB=new Array();
         var result;
-        $('#sens').on('change', function() {
+        var reverseDb=new Array();
+        function changeRadioButton(sensid) {
             $("#ourradio").empty();
-            var sensoriplot=result[this.value].sensors;
+            var sensoriplot=result[sensid].sensors;
             for(var j=0;j<sensoriplot.length;j++) {
                 $("#ourradio").append('<label class="radio-inline" style="margin-left: 5px"><input type="radio" name="optradio">' + sensoriplot[j] + '</label>')
             }
+        }
+        $('#sens').on('change', function() {
+            changeRadioButton(this.value)
         })
         function closeMapInfoWindow(){
             for (var i = 0; i < infowindowArray.length; i++ ) {
                 infowindowArray[i].close();
             }
+        }
+        function selectSens(id) {
+            $("#sens").val(reverseDb[id]);
+            changeRadioButton(reverseDb[id]);
         }
         function myMap() {
             var myCenter = new google.maps.LatLng(45.056471,7.653189);
@@ -210,11 +271,11 @@
                             '<div id="bodyContent">' +
                             '<p><b>'+result[i].name+'</b> from group <b>'+result[i].group+'</b><p>' +
                             '<p>'+result[i].description+'</p>' +
-                            '<p><a href="#action'+result[i].id+'">' +
+                            '<p><a href="javascript:selectSens(\''+result[i].id+'\')">' +
                             'Go to sensor</a></p>' +
                             '</div>' +
                             '</div>';
-
+                    reverseDb[result[i].id]=i;
                     var infowindow = new google.maps.InfoWindow();
                     infowindowArray.push(infowindow);
 

@@ -14,5 +14,6 @@
     <orderEntry type="library" name="bootstrap-datetimepicker" level="application" />
     <orderEntry type="library" name="moment-with-locales" level="application" />
     <orderEntry type="library" name="bootstrap.bundle" level="application" />
+    <orderEntry type="library" name="canvasjs" level="application" />
   </component>
 </module>
