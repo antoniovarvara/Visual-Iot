@@ -1,0 +1,30 @@
+[
+    {
+        "version": 1,
+        "id": "FEZ_01",
+        "name": "Bridge monitoring",
+        "group": "FEZ 01",
+        "type": "water",
+        "sensors":
+        ["water_level", "temperature", "humidity"],
+        "description": "Sensors to measure the level of the river under the bridge",
+        "location": "Ponte Vittorio",
+        "latitude": 45.058120,
+        "longitude": 7.691776,
+        "internal": true
+    },
+    {
+        "version": 1,
+        "id": "FEZ_24",
+        "name": "Fire monitoring",
+        "group": "FEZ 24",
+        "type": "fire",
+        "sensors":
+        ["smoke","flame","co", "temperature"],
+        "description": "Sensors to detect fire",
+        "location": "Ponte Vittorio",
+        "latitude": 45.0674769,
+        "longitude": 7.7088766,
+        "internal": true
+    }
+]
