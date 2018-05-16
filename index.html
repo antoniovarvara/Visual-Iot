@@ -75,7 +75,7 @@
     </section>
 
     <section>
-      <div class="container" style="min-height: 500px">
+      <div class="container" style="min-height: 500px;display: none" id="graphcont">
         <div class="row align-items-center">
 
             <div class="p-5">
@@ -124,7 +124,8 @@
                                 locale: 'it',
                                 showTodayButton: true,
                                 showClear: true,
-                                showClose: true
+                                showClose: true,
+                                format: 'YYYY-MM-DDThh:mm:ssZ',
                             });
                             $('#datetimepicker7').datetimepicker({
                                 inline: false,
@@ -134,6 +135,7 @@
                                 showTodayButton: true,
                                 showClear: true,
                                 showClose: true,
+                                format: 'YYYY-MM-DDThh:mm:ssZ',
                                 useCurrent: false //Important! See issue #1075
                             });
                             $("#datetimepicker6").on("dp.change", function (e) {
@@ -164,7 +166,7 @@
 
     <script>
         $('#plotbtn').on('click',function () {
-            var url = "http://localhost:63342/Visual-Iot/sens.json";
+            var url = "http://localhost:63342/Visual-Iot/sens.json?start="+moment($("#datetimepicker6").data("date")).unix()+"&end="+moment($("#datetimepicker7").data("date")).unix()+"&id="+$('#sens option:selected').text()+"&sensor="+$("input[name='optradio']:checked").parent('label').text();
             $.ajaxSetup({contentType: "application/json; charset=utf-8"});
             // Send the data using post
             var posting = $.get( url );
@@ -235,6 +237,10 @@
         function selectSens(id) {
             $("#sens").val(reverseDb[id]);
             changeRadioButton(reverseDb[id]);
+            $("#graphcont").show();
+            $('html,body').animate({
+                scrollTop: $("#graphcont").offset().top + 10,
+            });
         }
         function myMap() {
             var myCenter = new google.maps.LatLng(45.056471,7.653189);
