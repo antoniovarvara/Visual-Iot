@@ -1,303 +1,317 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>One Page Wonder - Start Bootstrap Template</title>
+  <title>Aws Sensor Map</title>
 
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" />
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css" />
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" />
-    <!-- Custom styles for this template -->
-    <link href="css/one-page-wonder.min.css" rel="stylesheet">
-    <!-- Bootstrap core JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.bundle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css" />
+  <!-- Custom styles for this template -->
+  <link href="css/one-page-wonder.min.css" rel="stylesheet">
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.bundle.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
+  <script src="vendor/canvas/canvasjs.min.js"></script>
+</head>
 
-  </head>
+<body>
 
-  <body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Aws Sensor Map</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://aws.r4ffy.info/ui/#/0">Live Data Fez_24</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://aws.r4ffy.info/ui/#/1">Live Data Esp8266_24</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#">Start Bootstrap</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sign Up</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Log In</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <header class="masthead text-center text-white">
-      <div class="masthead-content">
-        <div class="container">
-          <h1 class="masthead-heading mb-0">AWS Sensor Map</h1>
-          <h2 class="masthead-subheading mb-0">Cerca i sensori nei dintorni di Torino</h2>
-          <a href="#map" class="btn btn-primary btn-xl rounded-pill mt-5">Vai alla mappa</a>
-        </div>
-      </div>
-      <div class="bg-circle-1 bg-circle"></div>
-      <div class="bg-circle-2 bg-circle"></div>
-      <div class="bg-circle-3 bg-circle"></div>
-      <div class="bg-circle-4 bg-circle"></div>
-    </header>
+<header class="masthead text-center text-white" style="height: 88.3vh">
+  <div class="masthead-content">
+    <div class="container">
+      <h1 class="masthead-heading mb-0">AWS Sensor Map</h1>
+      <h2 class="masthead-subheading mb-0">Cerca i sensori nei dintorni di Torino</h2>
+      <a href="javascript:scrollToMap()" class="btn btn-primary btn-xl rounded-pill mt-5">Vai alla mappa</a>
+    </div>
+  </div>
+  <div class="bg-circle-1 bg-circle"></div>
+  <div class="bg-circle-2 bg-circle"></div>
+  <div class="bg-circle-3 bg-circle"></div>
+  <div class="bg-circle-4 bg-circle"></div>
+</header>
 
 
-    <section>
-      <div class="container">
-        <div class="row align-items-center">
-               <div id="map" style="width:100%;height:500px;margin-top:80px"></div>
-        </div>
-      </div>
-    </section>
+<section>
+  <div class="container">
+    <div class="row align-items-center">
+      <div id="map" style="width:100%;height:500px;margin-top:80px; margin-bottom:10px;display: none;"></div>
+    </div>
+  </div>
+</section>
 
-    <section>
-      <div class="container" style="min-height: 500px;display: none" id="graphcont">
-        <div class="row align-items-center">
+<section>
+  <div class="container" style="min-height: 500px;display: none" id="graphcont">
+    <div class="row align-items-center">
 
-            <div class="p-5">
-              <h2 class="display-4">Scegli l'intervallo e il sensore:</h2>
-              <div class="row">
-                <div class='col-md-5'>
-                  <div class="form-group">
-                    <div class='input-group date' id='datetimepicker6'>
-                      <b>Start</b>&nbsp;
-                      <input type='text' class="form-control" />
-                      <span class="input-group-addon">&nbsp;
+      <div class="p-5">
+        <h2 class="display-4">Scegli l'intervallo e il sensore:</h2>
+        <div class="row">
+          <div class='col-md-5'>
+            <div class="form-group">
+              <div class='input-group date' id='datetimepicker6'>
+                <b>Start</b>&nbsp;
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">&nbsp;
                     <span class="glyphicon glyphicon-calendar"></span>
                     </span>
-                    </div>
-                  </div>
-                </div>
-                <div class='col-md-5'>
-                  <div class="form-group">
-                    <div class='input-group date' id='datetimepicker7'>
-                      <b>End</b>&nbsp;
-                      <input type='text' class="form-control" />
-                      <span class="input-group-addon">&nbsp;
+              </div>
+            </div>
+          </div>
+          <div class='col-md-5'>
+            <div class="form-group">
+              <div class='input-group date' id='datetimepicker7'>
+                <b>End</b>&nbsp;
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">&nbsp;
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
 
-                    </div>
+              </div>
 
-                  </div>
-
-                </div>
-                <div>
-                  <div class="form-group form-inline">
-                  <label for="sens"><b>Sensor:</b></label>
-                  <select class="form-control" style="margin-left: 5px;max-width: 100px" id="sens">
-                  </select>
-                  <div id="ourradio" style="margin-left: 20px"></div>
-                  <button id="plotbtn" type="button" class="btn btn-success" style="margin-left: 30px">Plot Sensor Data</button>
-                  </div>
-                </div>
-                    <script type="text/javascript">
-                        $(function () {
-                            $('#datetimepicker6').datetimepicker({
-                                inline: false,
-                                sideBySide: true,
-                                toolbarPlacement:'top',
-                                locale: 'it',
-                                showTodayButton: true,
-                                showClear: true,
-                                showClose: true,
-                                format: 'YYYY-MM-DDThh:mm:ssZ',
-                            });
-                            $('#datetimepicker7').datetimepicker({
-                                inline: false,
-                                sideBySide: true,
-                                toolbarPlacement:'top',
-                                locale: 'it',
-                                showTodayButton: true,
-                                showClear: true,
-                                showClose: true,
-                                format: 'YYYY-MM-DDThh:mm:ssZ',
-                                useCurrent: false //Important! See issue #1075
-                            });
-                            $("#datetimepicker6").on("dp.change", function (e) {
-                                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-                            });
-                            $("#datetimepicker7").on("dp.change", function (e) {
-                                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-                            });
-                        });
-                    </script>
-                </div>
             </div>
 
-        </div>
-        <div class="row align-items-center">
-          <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+          </div>
+          <div>
+            <div class="form-group form-inline">
+              <label for="sens"><b>Sensor:</b></label>
+              <select class="form-control" style="margin-left: 5px;max-width: 100px" id="sens">
+              </select>
+              <div id="ourradio" style="margin-left: 20px"></div>
+              <button id="plotbtn" type="button" class="btn btn-success" style="margin-left: 30px;margin-top:5px">Plot Sensor Data</button>
+            </div>
+          </div>
+          <script type="text/javascript">
+              $(function () {
+                  $('#datetimepicker6').datetimepicker({
+                      inline: false,
+                      sideBySide: true,
+                      toolbarPlacement:'top',
+                      locale: 'it',
+                      showTodayButton: true,
+                      showClose: true,
+                      format: 'YYYY-MM-DDTHH:mm:ssZ',
+                      defaultDate: new Date(),
+                  });
+                  $('#datetimepicker7').datetimepicker({
+                      inline: false,
+                      sideBySide: true,
+                      toolbarPlacement:'top',
+                      locale: 'it',
+                      showTodayButton: true,
+                      showClear: true,
+                      showClose: true,
+                      format: 'YYYY-MM-DDTHH:mm:ssZ',
+                      defaultDate: new Date(),
+                      useCurrent: false //Important! See issue #1075
+                  });
+                  $("#datetimepicker6").on("dp.change", function (e) {
+                      $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+                  });
+                  $("#datetimepicker7").on("dp.change", function (e) {
+                      $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+                  });
+              });
+          </script>
         </div>
       </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="py-5 bg-black">
-      <div class="container">
-        <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+    </div>
+    <div class="row align-items-center">
+      <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+    </div>
+  </div>
+</section>
 
-    <script>
-        $('#plotbtn').on('click',function () {
-            var url = "http://localhost:63342/Visual-Iot/sens.json?start="+moment($("#datetimepicker6").data("date")).unix()+"&end="+moment($("#datetimepicker7").data("date")).unix()+"&id="+$('#sens option:selected').text()+"&sensor="+$("input[name='optradio']:checked").parent('label').text();
-            $.ajaxSetup({contentType: "application/json; charset=utf-8"});
-            // Send the data using post
-            var posting = $.get( url );
-            // Parse out the results
-            posting.done(function( data ) {
-                var dataarray=new Array();
-                for(var k=0;k<data.length;k++){
-                    dataarray[k]={
-                        x: new Date(data[k].iso_timestamp),
-                        y: data[k].value,
-                    }
+<!-- Footer -->
+<footer class="py-5 bg-black">
+  <div class="container">
+    <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2018</p>
+  </div>
+  <!-- /.container -->
+</footer>
+</body>
+<script>
+    $('#plotbtn').on('click',function () {
+        var url = "https://q1pqu4vfx0.execute-api.eu-west-1.amazonaws.com/prod/measure.json?start="+moment($("#datetimepicker6").data("date")).unix()+"&end="+moment($("#datetimepicker7").data("date")).unix()+"&id="+$('#sens option:selected').text()+"&sensor="+$("input[name='optradio']:checked").val();
+        $.ajaxSetup({contentType: "application/json; charset=utf-8"});
+        // Send the data using post
+        var posting = $.get( url );
+        // Parse out the results
+        posting.done(function( data ) {
+            var dataarray=new Array();
+            for(var k=0;k<data.length;k++){
+                dataarray[k]={
+                    x: new Date(data[k].iso_timestamp),
+                    y: data[k].value,
                 }
-                var chart = new CanvasJS.Chart("chartContainer", {
-                    animationEnabled: true,
-                    title:{
-                        text: $('#sens option:selected').text()+' '+ $("input[name='optradio']:checked").parent('label').text()+' '+ ' sensor',
-                    },
-                    axisX:{
-                        valueFormatString: "DD MMM YYYY HH",
-                        crosshair: {
-                            enabled: true,
-                            snapToDataPoint: true
+            }
+            var chart = new CanvasJS.Chart("chartContainer", {
+                animationEnabled: true,
+                title:{
+                    text: $('#sens option:selected').text()+' '+ $("input[name='optradio']:checked").parent('label').text()+' '+ ' sensor',
+                },
+                axisX:{
+                    valueFormatString: "DD MMM YYYY HH",
+                    crosshair: {
+                        enabled: true,
+                        snapToDataPoint: true
+                    }
+                },
+                axisY: {
+                    title: $("input[name='optradio']:checked").parent('label').text(),
+                    includeZero: false,
+                    valueFormatString: "0.00",
+                    crosshair: {
+                        enabled: true,
+                        snapToDataPoint: true,
+                        labelFormatter: function(e) {
+                            return "$" + CanvasJS.formatNumber(e.value, "##0.00");
                         }
-                    },
-                    axisY: {
-                        title: $("input[name='optradio']:checked").parent('label').text(),
-                        includeZero: false,
-                        valueFormatString: "0.00",
-                        crosshair: {
-                            enabled: true,
-                            snapToDataPoint: true,
-                            labelFormatter: function(e) {
-                                return "$" + CanvasJS.formatNumber(e.value, "##0.00");
-                            }
-                        }
-                    },
-                    data: [{
-                        type: "area",
-                        xValueFormatString: "DD MMM YYYY HH:mm:ss",
-                        yValueFormatString: "0.00",
-                        dataPoints: dataarray,
-                    }]
-                });
-                chart.render();
+                    }
+                },
+                data: [{
+                    type: "area",
+                    xValueFormatString: "DD MMM YYYY HH:mm:ss",
+                    yValueFormatString: "0.00",
+                    dataPoints: dataarray,
+                }]
+            });
+            function compareDataPoint(dataPoint1, dataPoint2) {
+                if (dataPoint1.x < dataPoint2.x){return -1}
+                if ( dataPoint1.x > dataPoint2.x){return 1}
+                return 0
+            }
+
+            chart.options.data.forEach(function(element) {
+                element.dataPoints.sort(compareDataPoint);
+            });
+
+            chart.render();
+            $('html,body').animate({
+                scrollTop: $("#chartContainer").offset().top - 40,
             });
         });
-    </script>
-    <script>
-        var infowindowArray = new Array();
-        var markerDB=new Array();
-        var result;
-        var reverseDb=new Array();
-        function changeRadioButton(sensid) {
-            $("#ourradio").empty();
-            var sensoriplot=result[sensid].sensors;
-            for(var j=0;j<sensoriplot.length;j++) {
-                $("#ourradio").append('<label class="radio-inline" style="margin-left: 5px"><input type="radio" name="optradio">' + sensoriplot[j] + '</label>')
+    });
+</script>
+<script>
+    var radioReverse=new Array();
+    var infowindowArray = new Array();
+    var markerDB=new Array();
+    var result;
+    var reverseDb=new Array();
+    function changeRadioButton(sensid) {
+        $("#ourradio").empty();
+        var sensoriplot=result[sensid].sensors;
+        for(var j=0;j<sensoriplot.length;j++) {
+            if(j===0){
+                $("#ourradio").append('<label class="radio-inline" style="margin-left: 5px;justify-content:left"><input type="radio" checked name="optradio" value='+ sensoriplot[j].id  +'>' + sensoriplot[j].name + '</label>')
+            }else {
+                $("#ourradio").append('<label class="radio-inline" style="margin-left: 5px;justify-content:left"><input type="radio" name="optradio" value='+sensoriplot[j].id+'>' + sensoriplot[j].name + '</label>')
             }
         }
-        $('#sens').on('change', function() {
-            changeRadioButton(this.value)
-        })
-        function closeMapInfoWindow(){
-            for (var i = 0; i < infowindowArray.length; i++ ) {
-                infowindowArray[i].close();
-            }
+    }
+    $('#sens').on('change', function() {
+        changeRadioButton(this.value)
+    })
+    function closeMapInfoWindow(){
+        for (var i = 0; i < infowindowArray.length; i++ ) {
+            infowindowArray[i].close();
         }
-        function selectSens(id) {
-            $("#sens").val(reverseDb[id]);
-            changeRadioButton(reverseDb[id]);
-            $("#graphcont").show();
-            $('html,body').animate({
-                scrollTop: $("#graphcont").offset().top + 10,
-            });
-        }
-        function myMap() {
-            var myCenter = new google.maps.LatLng(45.056471,7.653189);
-            var mapCanvas = document.getElementById("map");
-            var mapOptions = {center: myCenter, zoom: 15};
-            var map = new google.maps.Map(mapCanvas, mapOptions);
-            //var marker = new google.maps.Marker({position:myCenter, map: map});
-            /*markerMap["fez"] = marker;
-            google.maps.event.addListener(marker,'click',function() {
-                var infowindow = new google.maps.InfoWindow({content:"FEZ_24"});
+    }
+    function selectSens(id) {
+        $("#sens").val(reverseDb[id]);
+        changeRadioButton(reverseDb[id]);
+        $("#graphcont").show();
+        $('html,body').animate({
+            scrollTop: $("#graphcont").offset().top - 40,
+        });
+    }
+    function scrollToMap(){
+        $("#map").show();
+        $('html,body').animate({
+            scrollTop: $("#map").offset().top - 80,
+        });
+    }
+    function myMap() {
+        var myCenter = new google.maps.LatLng(45.056471,7.653189);
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = {center: myCenter, zoom: 13};
+        var bounds = new google.maps.LatLngBounds();
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var url = "https://q1pqu4vfx0.execute-api.eu-west-1.amazonaws.com/prod/configuration.json";
+        $.ajaxSetup({contentType: "application/json; charset=utf-8"});
+        // Send the data using post
+        var posting = $.get( url );
+        // Parse out the results
+        posting.done(function( data ) {
+            result = data;
+            // assume the data is an array of Javascript objects
+            // should also deal with the empty case here and inform the user
+            for(var i=0;i<result.length;i++){
+                var option = new Option(result[i].id, i); $('#sens').append($(option));
+                var positionResult = new google.maps.LatLng(result[i].latitude,result[i].longitude);
+                var marker = new google.maps.Marker({position: positionResult, map: map, title: result[i].id});
+                bounds.extend(positionResult);
+                var content = '<div id="content">' +
+                    '<h1 id="firstHeading" class="firstHeading">'+result[i].id+'</h1>' +
+                    '<div id="bodyContent">' +
+                    '<p><b>'+result[i].name+'</b> from group <b>'+result[i].group+'</b><p>' +
+                    '<p>'+result[i].description+'</p>' +
+                    '<p><a href="javascript:selectSens(\''+result[i].id+'\')">' +
+                    'Go to sensor</a></p>' +
+                    '</div>' +
+                    '</div>';
+                reverseDb[result[i].id]=i;
+                var infowindow = new google.maps.InfoWindow();
                 infowindowArray.push(infowindow);
-                closeMapInfoWindow();
-                infowindow.open(map,marker);
-            });
-            //close all the infoboxes when lose focus
-            google.maps.event.addListener(map, "click", function(event) {
-                closeMapInfoWindow();
-            });*/
-            var url = "http://localhost:63342/Visual-Iot/dati.json";
-            $.ajaxSetup({contentType: "application/json; charset=utf-8"});
-            // Send the data using post
-            var posting = $.get( url );
-            // Parse out the results
-            posting.done(function( data ) {
-                result = data;
-                // assume the data is an array of Javascript objects
-                // should also deal with the empty case here and inform the user
-                for(var i=0;i<result.length;i++){
-                    var option = new Option(result[i].id, i); $('#sens').append($(option));
-                    var positionResult = new google.maps.LatLng(result[i].latitude,result[i].longitude);
-                    var marker = new google.maps.Marker({position: positionResult, map: map, title: result[i].id});
-                    var content = '<div id="content">' +
-                            '<h1 id="firstHeading" class="firstHeading">'+result[i].id+'</h1>' +
-                            '<div id="bodyContent">' +
-                            '<p><b>'+result[i].name+'</b> from group <b>'+result[i].group+'</b><p>' +
-                            '<p>'+result[i].description+'</p>' +
-                            '<p><a href="javascript:selectSens(\''+result[i].id+'\')">' +
-                            'Go to sensor</a></p>' +
-                            '</div>' +
-                            '</div>';
-                    reverseDb[result[i].id]=i;
-                    var infowindow = new google.maps.InfoWindow();
-                    infowindowArray.push(infowindow);
 
-                    google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
-                        return function() {
-                            closeMapInfoWindow();
-                            infowindow.setContent(content);
-                            infowindow.open(map,marker);
-                        };
-                    })(marker,content,infowindow));
-                }
-            });
-        }
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBh0cT6vLIpkCqI9Fsogp6QSo8dXVyK8Cc&callback=myMap"></script>
+                google.maps.event.addListener(marker,'click', (function(marker,content,infowindow){
+                    return function() {
+                        closeMapInfoWindow();
+                        infowindow.setContent(content);
+                        infowindow.open(map,marker);
+                    };
+                })(marker,content,infowindow));
+            }
+            map.setCenter(bounds.getCenter());
+        });
+    }
+</script>
 
-  </body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBh0cT6vLIpkCqI9Fsogp6QSo8dXVyK8Cc&callback=myMap"></script>
 
 </html>
